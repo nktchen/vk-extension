@@ -1,10 +1,17 @@
 body {
     text-align:center;
     width:200px;
+    padding:10px;
+    color: white;
+    -webkit-text-stroke: 1px black;
+    background-image: url("icons/need.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 button {
     width:100%;
     color:white;
+    -webkit-text-stroke: 0px black;
     background:linear-gradient(#01a9e1, #5bc4bc);
     border: none;
     border-radius:20px;

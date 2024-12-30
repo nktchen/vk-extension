@@ -8,7 +8,6 @@ actionBtn.addEventListener("click",() => {
           target:{tabId: tab.id, allFrames: true},
           func:replaceImages
         },
-        onResult
       )
     } else {
       alert("There are no active tabs")
@@ -41,19 +40,5 @@ function replaceImages() {
       avatar.src = "https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Serial_Experiments_Lain_DVD_vol_1.jpg/220px-Serial_Experiments_Lain_DVD_vol_1.jpg"
     }
   }
-  // аватарки в сообщениях с классом BasicAvatar__noImg (без аватарок)
-  const avatarsMessages_noImg = document.getElementsByClassName("BasicAvatar__noImg");
-  if (avatarsMessages_noImg.length > 0) {
-    for (let avatar of avatarsMessages_noImg) {
-      console.log('lainization message avatars without imgs');
-      avatar.src = "https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Serial_Experiments_Lain_DVD_vol_1.jpg/220px-Serial_Experiments_Lain_DVD_vol_1.jpg"
-    }
-  }
 
-}
-
-function onResult(frames) {
-  // TODO - Объединить списки URL-ов, полученных из каждого фрейма в один,
-  // затем объединить их в строку, разделенную символом перевода строки
-  // и скопировать в буфер обмена
 }
