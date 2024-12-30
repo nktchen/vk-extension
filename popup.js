@@ -25,11 +25,31 @@ actionBtn.addEventListener("click",() => {
  */
 
 function replaceImages() {
-  const avatars = document.getElementsByClassName("vkuiImageBase__img");
-  for (let avatar of avatars) {
-    console.log('lainization');
-    avatar.src = "https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Serial_Experiments_Lain_DVD_vol_1.jpg/220px-Serial_Experiments_Lain_DVD_vol_1.jpg"
+  // аватарки в профилях
+  const avatarsProfiles = document.getElementsByClassName("vkuiImageBase__img");
+  if (avatarsProfiles.length > 0) {
+    for (let avatar of avatarsProfiles) {
+      console.log('lainization profile avatars');
+      avatar.src = "https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Serial_Experiments_Lain_DVD_vol_1.jpg/220px-Serial_Experiments_Lain_DVD_vol_1.jpg"
+    }
   }
+  // аватарки в сообщениях
+  const avatarsMessages = document.getElementsByClassName("ReImage__img");
+  if (avatarsMessages.length > 0) {
+    for (let avatar of avatarsMessages) {
+      console.log('lainization message avatars');
+      avatar.src = "https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Serial_Experiments_Lain_DVD_vol_1.jpg/220px-Serial_Experiments_Lain_DVD_vol_1.jpg"
+    }
+  }
+  // аватарки в сообщениях с классом BasicAvatar__noImg (без аватарок)
+  const avatarsMessages_noImg = document.getElementsByClassName("BasicAvatar__noImg");
+  if (avatarsMessages_noImg.length > 0) {
+    for (let avatar of avatarsMessages_noImg) {
+      console.log('lainization message avatars without imgs');
+      avatar.src = "https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Serial_Experiments_Lain_DVD_vol_1.jpg/220px-Serial_Experiments_Lain_DVD_vol_1.jpg"
+    }
+  }
+
 }
 
 function onResult(frames) {
