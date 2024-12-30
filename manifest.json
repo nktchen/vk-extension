@@ -1,0 +1,12 @@
+{
+  "name": "lain avatar",
+  "description": "replaces all avatars in vk to lain",
+  "version": "1.0",
+  "manifest_version": 3,
+  "icons": {},
+  "action": {
+    "default_popup":"popup.html"
+  },
+  "permissions": [],
+  "background":{}
+}
