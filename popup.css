@@ -22,3 +22,7 @@ button {
 button:hover {
     cursor:pointer;
 }
+
+#automationButton {
+ margin-top:20px;
+}

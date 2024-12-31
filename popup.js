@@ -15,6 +15,35 @@ actionBtn.addEventListener("click",() => {
   })
 })
 
+let timerID = null;
+let stopFlag = null;
+const automationBtn = document.getElementById("automationButton");
+automationBtn.addEventListener("click",() => {
+  console.log("automation button clicked")
+  if (!stopFlag){
+    stopFlag = true;
+    chrome.tabs.query({active: true}, (tabs) => {
+      const tab = tabs[0];
+      if (tab) {
+        timerID = setInterval(() => {
+          chrome.scripting.executeScript(
+            {
+              target:{tabId: tab.id, allFrames: true},
+              func:replaceImages
+            },
+          )
+        }, 3000)
+      } else {
+        alert("There are no active tabs")
+      }
+    })
+  } else {
+    stopFlag = false;
+    clearInterval(timerID)
+
+  }
+})
+
 /**
  * Функция исполняется на удаленной странице браузера,
  * получает аватарки и изменяет ссылки на аватарки на
@@ -40,5 +69,4 @@ function replaceImages() {
       avatar.src = "https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Serial_Experiments_Lain_DVD_vol_1.jpg/220px-Serial_Experiments_Lain_DVD_vol_1.jpg"
     }
   }
-
 }
