@@ -1,6 +1,6 @@
 const actionBtn = document.getElementById("actionButton");
 actionBtn.addEventListener("click",() => {
-  chrome.tabs.query({active: true}, (tabs) => {
+  chrome.tabs.query({active: true}, (tabs) => { /* ищем активные вкладки */
     const tab = tabs[0];
     if (tab) {
       chrome.scripting.executeScript(
@@ -13,35 +13,6 @@ actionBtn.addEventListener("click",() => {
       alert("There are no active tabs")
     }
   })
-})
-
-let timerID = null;
-let stopFlag = null;
-const automationBtn = document.getElementById("automationButton");
-automationBtn.addEventListener("click",() => {
-  console.log("automation button clicked")
-  if (!stopFlag){
-    stopFlag = true;
-    chrome.tabs.query({active: true}, (tabs) => {
-      const tab = tabs[0];
-      if (tab) {
-        timerID = setInterval(() => {
-          chrome.scripting.executeScript(
-            {
-              target:{tabId: tab.id, allFrames: true},
-              func:replaceImages
-            },
-          )
-        }, 3000)
-      } else {
-        alert("There are no active tabs")
-      }
-    })
-  } else {
-    stopFlag = false;
-    clearInterval(timerID)
-
-  }
 })
 
 /**
